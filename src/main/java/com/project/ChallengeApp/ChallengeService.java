@@ -40,4 +40,23 @@ public class ChallengeService {
         }
         return challengeList;
     }
+
+    public boolean updateChallenge(Long id, Challenge updatedchallenge) {
+        for (Challenge challenge : challenges) {
+            if(challenge.getId()==id)
+                challenge.setMonth(updatedchallenge.getMonth());
+                challenge.setDescription(updatedchallenge.getDescription());
+                return true;
+        }
+        return false;
+    }
+
+    public boolean deleteChallenge(Long id) {
+        for (Challenge challenge : challenges) {
+            if(challenge.getId()==id)
+                challenges.remove(challenge);
+                return true;
+        }
+        return false;
+    }
 }
